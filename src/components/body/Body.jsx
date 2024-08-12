@@ -1,8 +1,17 @@
 import React from 'react'
+import Card from './Card'
 
-function Body() {
+function Body({posts}) {
+  console.log(posts);
+  
   return (
-    <div className='flex-1 overflow-y-auto my-[10px] bg-gray-400 w-[40rem] mx-auto'>Body</div>
+    <div className='flex-1 overflow-y-auto my-[10px]  w-[40rem] mx-auto'>
+         {
+          posts?posts.map((post)=>{
+              return <Card post={post}key={post.id} />
+          }):<div>No post found</div>
+         }
+    </div>
   )
 }
 

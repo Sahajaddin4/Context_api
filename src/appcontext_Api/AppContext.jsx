@@ -3,31 +3,37 @@ import { baseUrl } from "../baseUrl";
 
 export const AppContext = createContext();
 
-export default function AppContextProvider({ Children }) {
+export default function AppContextProvider({ children }) {
   const [page, setPage] = useState(1);
-  const [totalPage, setTotalPage] = useState();
+  const [totalPages, setTotalPages] = useState();
   const [posts, setPosts] = useState([]);
   const [loader, setLoader] = useState(false);
   const value = {
     page,
     setPage,
-    totalPage,
-    setTotalPage,
+    totalPages,
+    setTotalPages,
     posts,
     setPosts,
     loader,
     setLoader,
+    fetchData
   };
 
   async function fetchData() {
     try {
+      setLoader(true)
       const response = await fetch(baseUrl);
       const result = await response.json();
-      setPosts(result);
+      setPosts(result.posts);
+      setPage(result.page)
+      setTotalPages(result.totalPages)
+      setLoader(false);
+
     } catch (error) {
       console.log("Error something");
     }
   }
-  fetchData();
-  return <AppContext.Provider value={value}>{Children}</AppContext.Provider>;
+ 
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
