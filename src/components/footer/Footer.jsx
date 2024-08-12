@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="fixed bottom-0 border-t-2 shadow-2xl  w-full py-3">
+    <div className="sticky bottom-0 border-t-2 shadow-2xl  w-full py-3 bg-white">
       <div className="pagination w-[40rem] mx-auto flex justify-between items-center">
         <div className="pagination-btn gap-2 flex">
 

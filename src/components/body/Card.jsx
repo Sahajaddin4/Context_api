@@ -17,7 +17,13 @@ function Card({ post }) {
       <div className="content mt-2">
         <p className="text-md">{post.content}</p>
       </div>
-
+      <div className="gap-x-2">
+          {
+          post.tags.map((tag, index)=>{
+            return <span key={index} className="text-blue-700 underline px-1">#{tag}</span>
+          })
+          }
+      </div>
     </div>
   );
 }
