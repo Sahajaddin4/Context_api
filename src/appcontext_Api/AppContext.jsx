@@ -27,7 +27,6 @@ export default function AppContextProvider({ children }) {
       setLoader(true);
       const response = await fetch(url);
       const result = await response.json();
-      console.log(result);
       setPosts(result.posts);
       setPage(result.page)
       setTotalPages(result.totalPages)

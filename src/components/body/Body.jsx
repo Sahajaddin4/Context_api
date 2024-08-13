@@ -2,7 +2,6 @@ import React from 'react'
 import Card from './Card'
 
 function Body({posts}) {
-  console.log(posts);
   
   return (
     <div className='flex-1 overflow-y-auto my-[10px]  w-[40rem] mx-auto'>

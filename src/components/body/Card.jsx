@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Card({ post }) {
+  console.log(post);
   return (
     <div className="blog mb-4">
       <div className="title">
