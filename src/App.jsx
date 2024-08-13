@@ -7,7 +7,7 @@ import { AppContext } from './appcontext_Api/AppContext'
 import Spinner from './components/spinner/Spinner';
 function App() {
   
-  const {fetchData,loader,posts}=useContext(AppContext);
+  const {fetchData,loader,posts, page, totalPages, pageChange}=useContext(AppContext);
 
   useEffect(()=>{
        fetchData();
@@ -21,7 +21,7 @@ function App() {
           loader?<Spinner />:<Body posts={posts} />
          }
          </div>
-         <Footer/>
+         <Footer page={page} totalPages={totalPages} pageChange={pageChange}/>
      </div>
     </>
   )

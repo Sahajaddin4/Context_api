@@ -17,14 +17,17 @@ export default function AppContextProvider({ children }) {
     setPosts,
     loader,
     setLoader,
-    fetchData
+    fetchData,
+    pageChange
   };
 
-  async function fetchData() {
+  async function fetchData(page=1) {
+    let url = `${baseUrl}?page=${page}`; 
     try {
-      setLoader(true)
-      const response = await fetch(baseUrl);
+      setLoader(true);
+      const response = await fetch(url);
       const result = await response.json();
+      console.log(result);
       setPosts(result.posts);
       setPage(result.page)
       setTotalPages(result.totalPages)
@@ -33,6 +36,10 @@ export default function AppContextProvider({ children }) {
     } catch (error) {
       console.log("Error something");
     }
+  }
+
+  function pageChange(page){
+    fetchData(page);
   }
  
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
