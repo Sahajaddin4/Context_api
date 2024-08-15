@@ -12,7 +12,7 @@ function CategoryBlog() {
 
    useEffect(()=>{
      fetchData(page,null,null,category);
-   },[page])
+   },[page,category])
     return (
         <div className="app flex flex-col">
           <Header />

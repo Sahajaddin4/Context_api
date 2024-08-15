@@ -16,7 +16,7 @@ function TagBlogs() {
 
   useEffect(() => {
     fetchData(page,null,tag,null);
-  }, [tag]);
+  }, [tag,page]);
 
   return (
     <div className="blog flex flex-col">

@@ -13,7 +13,7 @@ const Blog = () => {
 
   useEffect(() => {
     fetchData(page,blogId,null,null);
-  }, []);
+  }, [blogId,page]);
 
   return (
     <div className="blog flex flex-col">
