@@ -8,23 +8,25 @@ function Footer({ page, totalPages, pageChange }) {
           {page > 1 ? (
             <button
               className="previous py-2 shadow-md rounded-md border-gray-400 border px-4"
-              onClick={()=>{pageChange(page - 1)}}
+              onClick={() => {
+                pageChange(page - 1);
+              }}
             >
               Previous
             </button>
-          ) : ''
-
-          }
+          ) : (
+            ""
+          )}
           {page < totalPages ? (
             <button
               className="next py-2 shadow-md rounded-md border border-gray-400 px-4"
-              onClick={()=>(pageChange(page + 1))}
+              onClick={() => pageChange(page + 1)}
             >
               Next
             </button>
-          ) : 
-            ''          
-          }
+          ) : (
+            ""
+          )}
         </div>
         <div className="page-count">
           <p className="font-semibold">
